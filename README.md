@@ -6,5 +6,6 @@ Rough idea:
 
  - web socket -> runtime engine -> bun
  - to query db -> DJANGO_ORM
+ - No Puma or Gunicorn or anything
 
 Idea is to isolate ORM package from Django.
