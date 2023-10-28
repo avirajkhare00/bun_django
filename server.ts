@@ -1,8 +1,21 @@
-const server = Bun.serve({
-	port: 8081,
+Bun.serve({
+	port: 3000,
 	fetch(req) {
-		return new Response("Welcome to Bun!");
-	}
-});
+		const url = new URL(req.url);
+		if (url.pathname === "/") return new Response("Home to Bun!");
+		if (url.pathname === "/django-version") {
 
-console.log(`Listening on port: ${server.port}`);
+			const proc = Bun.spawn(
+				[process.env["PYTHON_LOCATION"], process.env["DJANGO_ADMIN_LOCATION"] + "/django-admin", "shell", "--command=import django; print(django.__version__)"],
+				{
+					env: process.env,
+					// cwd: "./",
+					stdout: "pipe"
+				}
+			);
+			proc.stdout.pipeTo(Response.json)
+			// console.log(proc.stderr)
+			return Response.json({ version: proc.stdout })
+		}
+	},
+});
