@@ -9,3 +9,7 @@ Rough idea:
  - No Puma or Gunicorn or anything
 
 Idea is to isolate ORM package from Django.
+
+
+PROGRESS:
+ - sqlite db for now
