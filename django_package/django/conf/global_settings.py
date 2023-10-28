@@ -188,7 +188,13 @@ DEFAULT_CHARSET = "utf-8"
 SERVER_EMAIL = "root@localhost"
 
 # Database connection info. If left empty, will default to the dummy backend.
-DATABASES = {}
+# hacking here also, sqlite3 for some time
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Classes used to implement DB routing behavior.
 DATABASE_ROUTERS = []
