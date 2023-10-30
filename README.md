@@ -14,4 +14,5 @@ SubProcess communication will happen from Bun to Django as shell
 We will load Django ORM in shell and magic will happen there.
 
 PROGRESS:
- - sqlite db for now
+ - [ ] sqlite db for now
+ - [ ] Create Dockerfile
