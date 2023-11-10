@@ -23,4 +23,4 @@ User can do read queries using Django shell on either master or slave db.
 
 PROGRESS:
  - [ ] sqlite db for now, we can even run it in memory(RAM)
- - [ ] Create Dockerfile
+ - [ ] Create Docker-compose file and add stress testing
