@@ -13,6 +13,10 @@ Idea is to isolate ORM package from Django.
 SubProcess communication will happen from Bun to Django as shell
 We will load Django ORM in shell and magic will happen there.
 
+Django creates a table, for ex. User(authentication) table
+Bun executes raw sql commands by opening sub process
+User can do read queries using Django shell on either master or slave db.
+
 PROGRESS:
  - [ ] sqlite db for now
  - [ ] Create Dockerfile
